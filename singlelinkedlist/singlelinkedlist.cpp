@@ -26,5 +26,11 @@ void addNote() {
 			cout << " NIM sudah ada " << endl;
 			return;
 		}
+
+
+		Node* current = START;
+		Node* previous = START;
+		
+		
 	}
 }

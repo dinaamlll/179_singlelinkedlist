@@ -77,3 +77,16 @@ bool deleteNode(int nim) {
 		START = current->next;
 	return true;
 }
+
+bool listEmpty() {
+	if (listEmpty()) {
+		cout << "List Kosong" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	else
+	{
+		
+	}
+}

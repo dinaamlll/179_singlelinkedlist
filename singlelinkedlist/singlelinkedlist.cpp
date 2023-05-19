@@ -27,9 +27,14 @@ void addNote() {
 			return;
 		}
 
+		nodeBaru->next = START;
+		START = nodeBaru;
+		return;
+	}
 
 		Node* current = START;
 		Node* previous = START;
+	
 
 		while ((current != NULL) && (nim >= current->noMhs))
 		{
@@ -44,7 +49,6 @@ void addNote() {
 		nodeBaru->next = current;
 		previous->next = nodeBaru;
 	}
-}
 
 bool searchNode(int nim, Node* current, Node* previous) {
 	previous = START;
@@ -84,6 +88,9 @@ bool listEmpty() {
 	else
 		return false;
 
+}
+
+void traverse() {
 	if (listEmpty()) {
 		cout << "List Kosong" << endl;
 		system("pause");

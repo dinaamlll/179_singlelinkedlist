@@ -1,16 +1,15 @@
 #include <iostream>
 using namespace std;
 
-struct Node
-{
+struct Node {
 	int noMhs;
-	string nama;
+	string name;
 	Node* next;
 };
 
 Node* START = NULL;
 
-void addNote() {
+void addNode() {
 	int nim;
 	string nama;
 	Node* nodeBaru = new Node();
@@ -19,10 +18,11 @@ void addNote() {
 	cout << "Masukkan Nama: ";
 	cin >> nama;
 	nodeBaru->noMhs = nim;
-	nodeBaru->nama = nama;
+	nodeBaru->name = nama;
 
 	if (START == NULL || nim <= START->noMhs) {
-		if (START != NULL && nim == START->noMhs) {
+		if (START != NULL && nim == START->noMhs) 
+		{
 			cout << " NIM sudah ada " << endl;
 			return;
 		}
@@ -58,7 +58,9 @@ bool searchNode(int nim, Node* current, Node* previous) {
 		previous = current;
 		current = current->next;
 	}
-	if (current == NULL) {
+
+	if (current == NULL) 
+	{
 		return false;
 	}
 	else if (current->noMhs == nim)
@@ -70,7 +72,6 @@ bool searchNode(int nim, Node* current, Node* previous) {
 		return false;
 	}
 }
-
 bool deleteNode(int nim) {
 	Node* current = START;
 	Node* previous = START;
@@ -81,7 +82,6 @@ bool deleteNode(int nim) {
 		START = current->next;
 	return true;
 }
-
 bool listEmpty() {
 	if (START == NULL)
 		return true;
@@ -100,7 +100,7 @@ void traverse() {
 	else {
 		Node* currentNode = START;
 		while (currentNode != NULL) {
-			cout << "NIM: " << currentNode->noMhs << ", Nama: " << currentNode->nama << endl;
+			cout << "NIM: " << currentNode->noMhs << ", Nama: " << currentNode->name << endl;
 			currentNode = currentNode->next;
 		}
 	}
@@ -116,10 +116,11 @@ void searchData() {
 	else {
 		int nim;
 		cout << "Masukkan NIM: ";
+		cin >> nim;
 		Node* currentNode = START;
 		while (currentNode != NULL) {
 			if (currentNode->noMhs == nim) {
-				cout << "NIM: " << currentNode->noMhs << ", Nama: " << currentNode->nama << endl;
+				cout << "NIM: " << currentNode->noMhs << ", Nama: " << currentNode->name << endl;
 				return;
 			}
 			currentNode = currentNode->next;
